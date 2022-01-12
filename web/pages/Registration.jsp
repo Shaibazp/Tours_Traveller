@@ -60,7 +60,7 @@
               <li><a hreef="pages/blog.html"> </a></li>
               <li><a href="pages/contact.html"> </a></li>
               <li ><a href="login.jsp">Sign In</a></li>
-              <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
+              <li style="margin-right: -150px;"><a href="Registration.jsp">Sign Up</a></li>
             </ul>
           </nav>
         </div>
@@ -89,24 +89,24 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="First Name">
+                    <input type="text" name="FirstName" class="form-control" placeholder="First Name">
                   </div>
                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Email Id">
+                    <input type="text" name="EmailId" class="form-control" placeholder="Email Id">
                   </div>
                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="City Name">
+                    <input type="text" name="CityName" class="form-control" placeholder="City Name">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Last Name">
+                    <input type="text" name="LastName" class="form-control" placeholder="Last Name">
                   </div>
                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Mobile Number">
+                    <input type="text" name="MobileNo" class="form-control" placeholder="Mobile Number">
                   </div>
                      <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" name="Password" class="form-control" placeholder="Password">
                    
                 </div>
 <!--                <div class="col-md-12">

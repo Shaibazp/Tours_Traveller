@@ -59,8 +59,8 @@
               <li><a hrefq="pages/contact.html"> </a></li>
               <li><a hreef="pages/blog.html"> </a></li>
               <li><a href="pages/contact.html"> </a></li>
-              <li ><a href="pages/login.jsp">Sign In</a></li>
-              <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
+              <li ><a href="login.jsp">Sign In</a></li>
+              <li style="margin-right: -150px;"><a href="Registration.jsp">Sign Up</a></li>
             </ul>
           </nav>
         </div>
