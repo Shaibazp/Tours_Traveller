@@ -15,7 +15,7 @@
     {
         PreparedStatement pstmt = null;
         PreparedStatement pstn1 = con.prepareStatement("select * from registration where MobileNumber=?");
-        pstn1.setString(1, "MobileNo");
+        pstn1.setString(1, MobileNo);
         ResultSet rs = pstn1.executeQuery();
         if (!rs.next()) 
         {

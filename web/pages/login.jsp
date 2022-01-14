@@ -98,10 +98,10 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" name="username" placeholder="Enter Mobile No">
                   </div>
                      <div class="form-group">
-                    <input type="text" class="form-control" >
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
                   </div>
                     
 <!--                <div class="col-md-12">
