@@ -11,35 +11,42 @@
     String password = request.getParameter("password");
     session.setAttribute("Userid", username);
 
-    try 
+    if(username.equals("admin") && password.equals("1122"))
     {
+        response.sendRedirect("AdminHome.jsp");
+    }
+    else
+    {
+        try 
+        {
 
-        PreparedStatement pstmt = con.prepareStatement("select * from registration where MobileNumber=? and Password=?");
-        pstmt.setString(1, username);
-        pstmt.setString(2, password);
-        ResultSet rs = pstmt.executeQuery();
-        if (rs.next()) 
+            PreparedStatement pstmt = con.prepareStatement("select * from registration where MobileNumber=? and Password=?");
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) 
+            {
+                response.sendRedirect("welcome.jsp");
+            }
+            else
+            {
+                %>
+                    <script>
+                        alert("Please Enter Valid Detailed");
+                        window.location = "login.jsp";
+                    </script>
+            <%
+            }
+        } 
+        catch (Exception e) 
         {
-            response.sendRedirect("welcome.jsp");
-        }
-        else
-        {
+            System.out.println(e);
             %>
                 <script>
                     alert("Please Enter Valid Detailed");
                     window.location = "login.jsp";
                 </script>
-        <%
+            <%
         }
-    } 
-    catch (Exception e) 
-    {
-        System.out.println(e);
-        %>
-            <script>
-                alert("Please Enter Valid Detailed");
-                window.location = "login.jsp";
-            </script>
-        <%
     }
 %>
