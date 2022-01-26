@@ -1,4 +1,4 @@
-<%//session.getAttribute("Userid").toString();%>
+<%session.getAttribute("Userid").toString();%>
 <!DOCTYPE html>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
