@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js">
-
-    <!-- Mirrored from www.free-css.com/assets/files/free-css-templates/preview/page231/travel/pages/flight.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Dec 2021 17:27:18 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
-        <title>Free CSS | Free CSS Templates | Demo of the HTML CSS Template Travel | Pages | Flight</title>
+        <title>Tours Traveller</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +10,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/css/plugins.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
         <script src="../assets/js/modernizr-2.6.2.min.js"></script>
-        <!--[if lt IE 9]>
-        <script src="../assets/js/respond.min.js"></script>
-        <![endif]-->
+
         <style type="text/css">
             #freecssfooter{display:block;width:100%;padding:120px 0 20px;overflow:hidden;background-color:transparent;z-index:5000;text-align:center;}
             #freecssfooter div#fcssholder div{display:none;}
@@ -36,19 +32,10 @@
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
                         <div class="nav-header"><a href="javascript:void(0)" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href="https://www.free-css.com/free-css-templates"><i class="icon-airplane"></i>Travel</a></h1>
+                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="https://www.free-css.com/free-css-templates">Home</a></li>
-                                    <!--              <li><a href="pages/vacation.html" class="fh5co-sub-ddown">Vacations</a>
-                                                    <ul class="fh5co-sub-menu">
-                                                      <li><a href="https://www.free-css.com/free-css-templates">Family</a></li>
-                                                      <li><a href="https://www.free-css.com/free-css-templates">CSS3 &amp; HTML5</a></li>
-                                                      <li><a href="https://www.free-css.com/free-css-templates">Angular JS</a></li>
-                                                      <li><a href="https://www.free-css.com/free-css-templates">Node JS</a></li>
-                                                      <li><a href="https://www.free-css.com/free-css-templates">Django &amp; Python</a></li>
-                                                    </ul>
-                                                  </li>-->
+                                    <li class="active"><a href="">Home</a></li>
                                     <li><a href="#">Destination</a></li>
                                     <li><a href="pages/hotel.html">Hotel</a></li>
                                     <li><a href="pages/car.html">Car</a></li>
@@ -77,7 +64,6 @@
                                             <ul class="nav nav-tabs" role="tablist">
                                                 <li role="presentation" class="active"><a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">By Region</a></li>
                                                 <li role="presentation"><a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">By Location</a></li>
-                                                <!--      <li role="presentation"><a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a></li>-->
                                             </ul>
                                             <form action="test1.jsp" method="post">
                                                 <div class="tab-content">
@@ -174,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 animate-box"><img class="img-responsive" src="../assets/images/cover_bg_3.jpg" alt="website template image"><a href="https://www.free-css.com/free-css-templates" class="flight-book">
+                            <div class="col-md-6 animate-box"><img class="img-responsive" src="../assets/images/cover_bg_3.jpg" alt="website template image"><a href="" class="flight-book">
                                     <div class="plane-name"><span class="p-flight">United States Airways</span></div>
                                     <div class="desc">
                                         <div class="left">
@@ -182,7 +168,7 @@
                                             <span>Dec 20 - Dec29</span></div>
                                         <div class="right"><span class="price"><i class="icon-arrow-down22"></i>$1000</span></div>
                                     </div>
-                                </a><a href="https://www.free-css.com/free-css-templates" class="flight-book">
+                                </a><a href="" class="flight-book">
                                     <div class="plane-name"><span class="p-flight">Qatar Airways</span></div>
                                     <div class="desc">
                                         <div class="left">
@@ -190,7 +176,7 @@
                                             <span>Dec 20 - Dec29</span></div>
                                         <div class="right"><span class="price"><i class="icon-arrow-down22"></i>$790</span></div>
                                     </div>
-                                </a><a href="https://www.free-css.com/free-css-templates" class="flight-book">
+                                </a><a href="" class="flight-book">
                                     <div class="plane-name"><span class="p-flight">Philippine Airline</span></div>
                                     <div class="desc">
                                         <div class="left">
@@ -198,7 +184,7 @@
                                             <span>Dec 20 - Dec29</span></div>
                                         <div class="right"><span class="price"><i class="icon-arrow-down22"></i>$500</span></div>
                                     </div>
-                                </a><a href="https://www.free-css.com/free-css-templates" class="flight-book">
+                                </a><a href="" class="flight-book">
                                     <div class="plane-name"><span class="p-flight">China Airways</span></div>
                                     <div class="desc">
                                         <div class="left">
@@ -213,14 +199,14 @@
                                 <div><img src="../assets/images/place-1.jpg" alt="website template image" class="img-responsive">
                                     <div class="desc"><span></span>
                                         <h3>New York</h3>
-                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
+                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
                                 <div><img src="../assets/images/place-2.jpg" alt="website template image" class="img-responsive">
                                     <div class="desc"><span></span>
                                         <h3>Philippines</h3>
-                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
+                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
@@ -234,21 +220,21 @@
                                 <div><img src="../assets/images/place-4.jpg" alt="website template image" class="img-responsive">
                                     <div class="desc"><span></span>
                                         <h3>New York</h3>
-                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
+                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
                                 <div><img src="../assets/images/place-5.jpg" alt="website template image" class="img-responsive">
                                     <div class="desc"><span></span>
                                         <h3>Philippines</h3>
-                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
+                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
                                 <div><img src="../assets/images/place-6.jpg" alt="website template image" class="img-responsive">
                                     <div class="desc"><span></span>
                                         <h3>Hongkong</h3>
-                                        <span>2 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
+                                        <span>2 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +253,7 @@
                                     <blockquote><span class="quote"><span><i class="icon-quotes-right"></i></span></span>
                                         <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     </blockquote>
-                                    <p class="author">John Doe, CEO <a href="https://www.free-css.com/free-css-templates">domain.com</a> <span class="subtext">Creative Director</span></p>
+                                    <p class="author">John Doe, CEO <a href="">domain.com</a> <span class="subtext">Creative Director</span></p>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -275,7 +261,7 @@
                                     <blockquote><span class="quote"><span><i class="icon-quotes-right"></i></span></span>
                                         <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
                                     </blockquote>
-                                    <p class="author">John Doe, CEO <a href="https://www.free-css.com/free-css-templates">domain.com</a> <span class="subtext">Creative Director</span></p>
+                                    <p class="author">John Doe, CEO <a href="">domain.com</a> <span class="subtext">Creative Director</span></p>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -283,7 +269,7 @@
                                     <blockquote><span class="quote"><span><i class="icon-quotes-right"></i></span></span>
                                         <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     </blockquote>
-                                    <p class="author">John Doe, Founder <a href="https://www.free-css.com/free-css-templates">Domain.com</a> <span class="subtext">Creative Director</span></p>
+                                    <p class="author">John Doe, Founder <a href="">Domain.com</a> <span class="subtext">Creative Director</span></p>
                                 </div>
                             </div>
                         </div>
@@ -300,54 +286,54 @@
                                 <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
                                     <h3>Top Flights Routes</h3>
                                     <ul>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Manila flights</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Dubai flights</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Bangkok flights</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Tokyo Flight</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">New York Flights</a></li>
+                                        <li><a href="">Manila flights</a></li>
+                                        <li><a href="">Dubai flights</a></li>
+                                        <li><a href="">Bangkok flights</a></li>
+                                        <li><a href="">Tokyo Flight</a></li>
+                                        <li><a href="">New York Flights</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
                                     <h3>Top Hotels</h3>
                                     <ul>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Boracay Hotel</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Dubai Hotel</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Singapore Hotel</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Manila Hotel</a></li>
+                                        <li><a href="">Boracay Hotel</a></li>
+                                        <li><a href="">Dubai Hotel</a></li>
+                                        <li><a href="">Singapore Hotel</a></li>
+                                        <li><a href="">Manila Hotel</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
                                     <h3>Interest</h3>
                                     <ul>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Beaches</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Family Travel</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Budget Travel</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Food &amp; Drink</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Honeymoon and Romance</a></li>
+                                        <li><a href="">Beaches</a></li>
+                                        <li><a href="">Family Travel</a></li>
+                                        <li><a href="">Budget Travel</a></li>
+                                        <li><a href="">Food &amp; Drink</a></li>
+                                        <li><a href="">Honeymoon and Romance</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
                                     <h3>Best Places</h3>
                                     <ul>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Boracay Beach</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Dubai</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Singapore</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Hongkong</a></li>
+                                        <li><a href="">Boracay Beach</a></li>
+                                        <li><a href="">Dubai</a></li>
+                                        <li><a href="">Singapore</a></li>
+                                        <li><a href="">Hongkong</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
                                     <h3>Affordable</h3>
                                     <ul>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Food &amp; Drink</a></li>
-                                        <li><a href="https://www.free-css.com/free-css-templates">Fare Flights</a></li>
+                                        <li><a href="">Food &amp; Drink</a></li>
+                                        <li><a href="">Fare Flights</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
-                                    <p class="fh5co-social-icons"><a href="https://www.free-css.com/free-css-templates"><i class="icon-twitter2"></i></a> <a href="https://www.free-css.com/free-css-templates"><i class="icon-facebook2"></i></a> <a href="https://www.free-css.com/free-css-templates"><i class="icon-instagram"></i></a> <a href="https://www.free-css.com/free-css-templates"><i class="icon-dribbble2"></i></a> <a href="https://www.free-css.com/free-css-templates"><i class="icon-youtube"></i></a></p>
-                                    <p>Copyright <a href="https://www.free-css.com/free-css-templates">Module</a>. All Rights Reserved.<br>
-                                        Made with <i class="icon-heart3"></i> by <a target="_blank" rel="nofollow noopener" href="http://freehtml5.co/">FreeHTML5.co</a> / Demo Images: Unsplash</p>
+                                    <p class="fh5co-social-icons"><a href=""><i class="icon-twitter2"></i></a> <a href=""><i class="icon-facebook2"></i></a> <a href=""><i class="icon-instagram"></i></a> <a href=""><i class="icon-dribbble2"></i></a> <a href=""><i class="icon-youtube"></i></a></p>
+                                    <p>Copyright <a href="">Module</a>. All Rights Reserved.<br>
+                                        Made with <i class="icon-heart3"></i> by <a target="_blank" rel="nofollow noopener" href="">FreeHTML5.co</a> / Demo Images: Unsplash</p>
                                 </div>
                             </div>
                         </div>
@@ -399,6 +385,4 @@
             ga('send', 'pageview');
         </script>
     </body>
-
-    <!-- Mirrored from www.free-css.com/assets/files/free-css-templates/preview/page231/travel/pages/flight.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Dec 2021 17:27:19 GMT -->
 </html>

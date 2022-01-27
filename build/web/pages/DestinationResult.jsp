@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
-        <title>Free CSS | Free CSS Templates | Demo of the HTML CSS Template Travel | Pages | Flight</title>
+        <title>Tours Traveller</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/css/plugins.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
         <script src="../assets/js/modernizr-2.6.2.min.js"></script>
-        <!--[if lt IE 9]>
-        <script src="../assets/js/respond.min.js"></script>
-        <![endif]-->
+
         <style type="text/css">
             #freecssfooter{display:block;width:100%;padding:120px 0 20px;overflow:hidden;background-color:transparent;z-index:5000;text-align:center;}
             #freecssfooter div#fcssholder div{display:none;}
@@ -48,7 +46,6 @@
                                     <li><a href="pages/contact.html"> </a></li>
                                     <li ><a href="pages/login.jsp">Sign In</a></li>
                                     <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
-
                                 </ul>
                             </nav>
                         </div>
