@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Location_0020_00281_0029_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Location_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -41,6 +41,11 @@ public final class Location_0020_00281_0029_jsp extends org.apache.jasper.runtim
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+
+    String id = request.getParameter("id");
+    System.out.println(id);
+
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html class=\"no-js\">\n");
       out.write("    <meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" /><!-- /Added by HTTrack -->\n");
@@ -122,7 +127,6 @@ public final class Location_0020_00281_0029_jsp extends org.apache.jasper.runtim
       out.write("                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("\n");
       out.write("                        <div class=\"row\">\n");
       out.write("                            <div class=\"col-md-12 animate-box\">\n");
       out.write("                                <h2 class=\"heading-title\">Travel Booking guide to book a perfect hotel</h2>\n");
@@ -178,7 +182,6 @@ public final class Location_0020_00281_0029_jsp extends org.apache.jasper.runtim
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div id=\"fh5co-testimonial\">\n");

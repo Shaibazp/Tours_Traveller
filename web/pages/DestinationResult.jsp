@@ -80,8 +80,10 @@
                 </div>
 
 
-
-                <%                            String region = request.getParameter("region");
+                <div id="fh5co-tours" class="fh5co-section-gray">
+                    <div class="container">
+                <%                            
+                    String region = request.getParameter("region");
                     String season = request.getParameter("location");
                     String city = request.getParameter("city");
 
@@ -97,18 +99,16 @@
                                 String encode = Base64.getEncoder().encodeToString(imgData);
                                 request.setAttribute("imgbase", encode);
                 %>
-                <div id="fh5co-tours" class="fh5co-section-gray">
-                    <div class="container">
+                
                         <div class="card mb-3">
                             <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
                                 <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp" class="btn btn-primary">Visite</a>
+                                <a href="Location.jsp?id=<%=rs.getString(1)%>" class="btn btn-primary">Visite</a>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div><br />
+                    
                 <%
                             }
                         } catch (Exception e) {
@@ -118,7 +118,8 @@
                         System.out.println("city");
                     }
                 %>
-
+                </div>
+                </div>
 
                 <div id="fh5co-testimonial">
                     <div class="container">
