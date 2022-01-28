@@ -3,6 +3,13 @@ package org.apache.jsp.pages;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.Base64;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Date;
+import java.sql.*;
+import java.sql.*;
 
 public final class DestinationResult_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -10,6 +17,11 @@ public final class DestinationResult_jsp extends org.apache.jasper.runtime.HttpJ
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/pages/DB_Connection.jsp");
+  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -41,6 +53,31 @@ public final class DestinationResult_jsp extends org.apache.jasper.runtime.HttpJ
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write('\n');
+      out.write('\n');
+
+    Connection con=null;
+    try
+    {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tours_traveller", "root", "root");
+        //System.out.println("Connection Successful.................. jsp page");
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    
+    
+
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html class=\"no-js\">\n");
       out.write("    <head>\n");
@@ -113,18 +150,65 @@ public final class DestinationResult_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <div id=\"fh5co-tours\" class=\"fh5co-section-gray\">\n");
-      out.write("                    <div class=\"container\">\n");
+      out.write("                \n");
+      out.write("                    \n");
+      out.write("                        \n");
+      out.write("                        ");
+    
+                            String region = request.getParameter("region");
+                            String season = request.getParameter("location");
+                            String city = request.getParameter("city");
+
+                            if (region != (null)) 
+                            {
+                                try 
+                                {
+                                    PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=?");
+                                    pstn1.setString(1, region);
+                                    pstn1.setString(2, season);
+                                    ResultSet rs = pstn1.executeQuery();
+                                    while (rs.next()) {
+                                        String location = rs.getString(3);
+                                        byte[ ] imgData = rs.getBytes(7);
+                                        String encode = Base64.getEncoder().encodeToString(imgData);
+                                        request.setAttribute("imgbase", encode);
+                        
+      out.write("\n");
+      out.write("                        <div id=\"fh5co-tours\" class=\"fh5co-section-gray\">\n");
+      out.write("                        <div class=\"container\">\n");
       out.write("                        <div class=\"card mb-3\">\n");
-      out.write("                            <img src=\"../assets/images/car-2.jpg\" class=\"card-img-top\" alt=\"...\">\n");
+      out.write("                            <img src=\"data:image/jpeg;base64,");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${imgbase}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"card-img-top\" alt=\"...\">\n");
       out.write("                            <div class=\"card-body\">\n");
-      out.write("                                <h5 class=\"card-title\">agra</h5>\n");
-      out.write("                                <p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>\n");
+      out.write("                                <h1 class=\"card-title\" style=\"font-style: italic;\"><b>");
+      out.print(rs.getString(2));
+      out.write("</b></h1>\n");
+      out.write("                                <p class=\"card-text\">");
+      out.print(rs.getString(6));
+      out.write("</p>\n");
       out.write("                                <a href=\"Location.jsp\" class=\"btn btn-primary\">Visite</a>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
+      out.write("                        </div>\n");
+      out.write("                                </div>\n");
+      out.write("                        ");
+
+                                    }
+                                } 
+                                catch (Exception e) 
+                                {
+                                    System.out.println(e);
+                                }
+                            } 
+                            else 
+                            {
+                                System.out.println("city");
+                            }
+                        
+      out.write("\n");
+      out.write("                    \n");
+      out.write("                \n");
       out.write("                <div id=\"fh5co-testimonial\">\n");
       out.write("                    <div class=\"container\">\n");
       out.write("                        <div class=\"row animate-box\">\n");

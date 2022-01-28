@@ -1,3 +1,11 @@
+<%@page import="java.util.Base64"%>
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.sql.*"%>
+<%@ include file="DB_Connection.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -70,18 +78,48 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <%                            String region = request.getParameter("region");
+                    String season = request.getParameter("location");
+                    String city = request.getParameter("city");
+
+                    if (region != (null)) {
+                        try {
+                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=?");
+                            pstn1.setString(1, region);
+                            pstn1.setString(2, season);
+                            ResultSet rs = pstn1.executeQuery();
+                            while (rs.next()) {
+                                String location = rs.getString(3);
+                                byte[] imgData = rs.getBytes(7);
+                                String encode = Base64.getEncoder().encodeToString(imgData);
+                                request.setAttribute("imgbase", encode);
+                %>
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
                         <div class="card mb-3">
-                            <img src="../assets/images/car-2.jpg" class="card-img-top" alt="...">
+                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">agra</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
+                                <p class="card-text"><%=rs.getString(6)%></p>
                                 <a href="Location.jsp" class="btn btn-primary">Visite</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <%
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    } else {
+                        System.out.println("city");
+                    }
+                %>
+
+
                 <div id="fh5co-testimonial">
                     <div class="container">
                         <div class="row animate-box">

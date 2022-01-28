@@ -65,7 +65,7 @@
                                                 <li role="presentation" class="active"><a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">By Region</a></li>
                                                 <li role="presentation"><a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">By Location</a></li>
                                             </ul>
-                                            <form action="test1.jsp" method="post">
+                                            <form action="DestinationResult.jsp" method="post">
                                                 <div class="tab-content">
                                                     <div role="tabpanel" class="tab-pane active" id="flights">
                                                         <div class="row">
@@ -75,10 +75,10 @@
                                                                     <label>Select Region</label>
                                                                     <select class="cs-select cs-skin-border" name="region">
                                                                         <option>Select Region</option>
-                                                                        <option value="east"  >East</option>
-                                                                        <option value="west">West</option>
-                                                                        <option value="north">North</option>
-                                                                        <option value="south">South</option>
+                                                                        <option value="East"  >East India</option>
+                                                                        <option value="West">West India</option>
+                                                                        <option value="North">North India</option>
+                                                                        <option value="South">South India</option>
                                                                     </select>
                                                                 </section>
                                                             </div>
@@ -87,9 +87,9 @@
                                                                     <label>Select Season</label>
                                                                     <select class="cs-select cs-skin-border" name="location">
                                                                         <option>Select Season</option>
-                                                                        <option value="spring"  >Spring</option>
-                                                                        <option value="summer">Summer</option>
-                                                                        <option value="winter">Winter</option>
+                                                                        <option value="Winnter"  >Winnter</option>
+                                                                        <option value="Summer">Summer</option>
+                                                                        <option value="Rainy">Rainy</option>
                                                                     </select>
                                                                 </section>
                                                             </div>

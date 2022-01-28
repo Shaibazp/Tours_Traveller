@@ -108,7 +108,7 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <li role=\"presentation\" class=\"active\"><a href=\"#flights\" aria-controls=\"flights\" role=\"tab\" data-toggle=\"tab\">By Region</a></li>\n");
       out.write("                                                <li role=\"presentation\"><a href=\"#hotels\" aria-controls=\"hotels\" role=\"tab\" data-toggle=\"tab\">By Location</a></li>\n");
       out.write("                                            </ul>\n");
-      out.write("                                            <form action=\"test1.jsp\" method=\"post\">\n");
+      out.write("                                            <form action=\"DestinationResult.jsp\" method=\"post\">\n");
       out.write("                                                <div class=\"tab-content\">\n");
       out.write("                                                    <div role=\"tabpanel\" class=\"tab-pane active\" id=\"flights\">\n");
       out.write("                                                        <div class=\"row\">\n");
@@ -118,10 +118,10 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                                    <label>Select Region</label>\n");
       out.write("                                                                    <select class=\"cs-select cs-skin-border\" name=\"region\">\n");
       out.write("                                                                        <option>Select Region</option>\n");
-      out.write("                                                                        <option value=\"east\"  >East</option>\n");
-      out.write("                                                                        <option value=\"west\">West</option>\n");
-      out.write("                                                                        <option value=\"north\">North</option>\n");
-      out.write("                                                                        <option value=\"south\">South</option>\n");
+      out.write("                                                                        <option value=\"East\"  >East India</option>\n");
+      out.write("                                                                        <option value=\"West\">West India</option>\n");
+      out.write("                                                                        <option value=\"North\">North India</option>\n");
+      out.write("                                                                        <option value=\"South\">South India</option>\n");
       out.write("                                                                    </select>\n");
       out.write("                                                                </section>\n");
       out.write("                                                            </div>\n");
@@ -130,9 +130,9 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                                    <label>Select Season</label>\n");
       out.write("                                                                    <select class=\"cs-select cs-skin-border\" name=\"location\">\n");
       out.write("                                                                        <option>Select Season</option>\n");
-      out.write("                                                                        <option value=\"spring\"  >Spring</option>\n");
-      out.write("                                                                        <option value=\"summer\">Summer</option>\n");
-      out.write("                                                                        <option value=\"winter\">Winter</option>\n");
+      out.write("                                                                        <option value=\"Winnter\"  >Winnter</option>\n");
+      out.write("                                                                        <option value=\"Summer\">Summer</option>\n");
+      out.write("                                                                        <option value=\"Rainy\">Rainy</option>\n");
       out.write("                                                                    </select>\n");
       out.write("                                                                </section>\n");
       out.write("                                                            </div>\n");
