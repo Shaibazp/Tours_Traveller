@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <title>Tours Traveller</title>
         <meta charset="utf-8">
@@ -45,9 +45,7 @@
                                     <li><a hrefq="pages/contact.html"> </a></li>
                                     <li><a hreef="pages/blog.html"> </a></li>
                                     <li><a href="pages/contact.html"> </a></li>
-                                    <li ><a href="pages/login.jsp">Sign In</a></li>
-                                    <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
-
+                                    <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -69,13 +67,12 @@
                                                 <div class="tab-content">
                                                     <div role="tabpanel" class="tab-pane active" id="flights">
                                                         <div class="row">
-
                                                             <div class="col-sm-12 mt">
                                                                 <section>
                                                                     <label>Select Region</label>
                                                                     <select class="cs-select cs-skin-border" name="region">
                                                                         <option>Select Region</option>
-                                                                        <option value="East"  >East India</option>
+                                                                        <option value="East">East India</option>
                                                                         <option value="West">West India</option>
                                                                         <option value="North">North India</option>
                                                                         <option value="South">South India</option>
@@ -107,15 +104,11 @@
                                                                     <input type="text" class="form-control" placeholder="Enter Location" name="city">
                                                                 </div>
                                                             </div>
-
-
-
                                                             <div class="col-xs-12">
                                                                 <input type="submit" class="btn btn-primary btn-block" value="Search Location">
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </form>
                                         </div>

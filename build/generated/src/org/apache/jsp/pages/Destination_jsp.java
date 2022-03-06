@@ -43,7 +43,7 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("<!DOCTYPE html>\n");
       out.write("<html class=\"no-js\">\n");
-      out.write("<meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" /><!-- /Added by HTTrack -->\n");
+      out.write("<meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" />\n");
       out.write("    <head>\n");
       out.write("        <title>Tours Traveller</title>\n");
       out.write("        <meta charset=\"utf-8\">\n");
@@ -88,9 +88,7 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <li><a hrefq=\"pages/contact.html\"> </a></li>\n");
       out.write("                                    <li><a hreef=\"pages/blog.html\"> </a></li>\n");
       out.write("                                    <li><a href=\"pages/contact.html\"> </a></li>\n");
-      out.write("                                    <li ><a href=\"pages/login.jsp\">Sign In</a></li>\n");
-      out.write("                                    <li style=\"margin-right: -150px;\"><a href=\"pages/Registration.jsp\">Sign Up</a></li>\n");
-      out.write("\n");
+      out.write("                                    <li><a href=\"logout.jsp\">Logout</a></li>\n");
       out.write("                                </ul>\n");
       out.write("                            </nav>\n");
       out.write("                        </div>\n");
@@ -112,13 +110,12 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <div class=\"tab-content\">\n");
       out.write("                                                    <div role=\"tabpanel\" class=\"tab-pane active\" id=\"flights\">\n");
       out.write("                                                        <div class=\"row\">\n");
-      out.write("\n");
       out.write("                                                            <div class=\"col-sm-12 mt\">\n");
       out.write("                                                                <section>\n");
       out.write("                                                                    <label>Select Region</label>\n");
       out.write("                                                                    <select class=\"cs-select cs-skin-border\" name=\"region\">\n");
       out.write("                                                                        <option>Select Region</option>\n");
-      out.write("                                                                        <option value=\"East\"  >East India</option>\n");
+      out.write("                                                                        <option value=\"East\">East India</option>\n");
       out.write("                                                                        <option value=\"West\">West India</option>\n");
       out.write("                                                                        <option value=\"North\">North India</option>\n");
       out.write("                                                                        <option value=\"South\">South India</option>\n");
@@ -150,15 +147,11 @@ public final class Destination_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Location\" name=\"city\">\n");
       out.write("                                                                </div>\n");
       out.write("                                                            </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("                                                            <div class=\"col-xs-12\">\n");
       out.write("                                                                <input type=\"submit\" class=\"btn btn-primary btn-block\" value=\"Search Location\">\n");
       out.write("                                                            </div>\n");
       out.write("                                                        </div>\n");
       out.write("                                                    </div>\n");
-      out.write("\n");
       out.write("                                                </div>\n");
       out.write("                                            </form>\n");
       out.write("                                        </div>\n");

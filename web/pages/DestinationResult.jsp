@@ -52,8 +52,7 @@
                                     <li><a hrefq="pages/contact.html"> </a></li>
                                     <li><a hreef="pages/blog.html"> </a></li>
                                     <li><a href="pages/contact.html"> </a></li>
-                                    <li ><a href="pages/login.jsp">Sign In</a></li>
-                                    <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
+                                    <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -87,7 +86,7 @@
                     String season = request.getParameter("location");
                     String city = request.getParameter("city");
 
-                    if (region != (null)) {
+                    if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
                         try {
                             PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=?");
                             pstn1.setString(1, region);

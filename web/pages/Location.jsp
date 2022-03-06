@@ -56,6 +56,7 @@
                                     <li><a href="flight.html">Review</a></li> 
                                     <li class="active"><a href="blog.html">Blog</a></li>
                                     <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
