@@ -11,6 +11,10 @@
         <servlet-name>saveHotels</servlet-name>
         <servlet-class>saveHotels</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>savereview</servlet-name>
+        <servlet-class>savereview</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>savePlaces</servlet-name>
         <url-pattern>/uploadServlet</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>saveHotels</servlet-name>
         <url-pattern>/hotelUrl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>savereview</servlet-name>
+        <url-pattern>/addreview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -38,9 +38,12 @@
                                     <li class="active"><a href="../pages/AdminHome.jsp">Home</a></li>
                                     <li><a href="Places.jsp">Add Places</a></li>
                                     <li><a href="Hotels.jsp">Add Hotels</a></li>
-                                    <li><a href="Tourism.jsp">Add Tourism</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a class="active fh5co-sub-ddown" href="">Tourism</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li><a href="addvehicle.jsp">Add Vehicle</a></li>
+                                            <li><a href="Tourism.jsp">Add Source Location</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>

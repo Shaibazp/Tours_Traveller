@@ -34,15 +34,7 @@
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
                                     <li class="active"><a href="Home.jsp">Home</a></li>
-                                    <li><a href="pages/login.jsp">Destination</a></li>
-                                    <li><a href="pages/login.jsp">Hotel</a></li>
-                                    <li><a href="pages/login.jsp">Car</a></li>
-<!--                                    <li><a href="pages/blog.html">Blog</a></li>-->
                                     <li><a href="pages/contact.html">Contact</a></li>
-                                    <li><a hrefq=""> </a></li>
-                                    <li><a hrefq=""> </a></li>
-                                    <li><a hreef=""> </a></li>
-                                    <li><a href=""> </a></li>
                                     <li ><a href="pages/login.jsp">Sign In</a></li>
                                     <li style="margin-right: -150px;"><a href="pages/Registration.jsp">Sign Up</a></li>
                                 </ul>

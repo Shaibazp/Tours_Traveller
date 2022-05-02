@@ -38,9 +38,12 @@
                                     <li><a href="../pages/AdminHome.jsp">Home</a></li>
                                     <li><a href="Places.jsp">Add Places</a></li>
                                     <li class="active"><a href="Hotels.jsp">Add Hotels</a></li>
-                                    <li><a href="Tourism.jsp">Add Tourism</a></li>
-                                    <li ><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a class="active fh5co-sub-ddown" href="">Tourism</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li><a href="addvehicle.jsp">Add Vehicle</a></li>
+                                            <li><a href="Tourism.jsp">Add Source Location</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -113,11 +116,53 @@
                                                 <input type="text" class="form-control" placeholder="Phone Number" name="hlandline">
                                             </div>
                                         </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <select class="cs-select cs-skin-border" name="breakfast">
+                                                    <option value="" disabled selected>Free Breakfast</option>
+                                                    <option value="Free Breakfast">Yes</option>
+                                                    <option value="Paid Breakfast">No</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <select class="cs-select cs-skin-border" name="fwifi">
+                                                    <option value="" disabled selected>Free WiFi</option>
+                                                    <option value="Free WiFi Zone">Yes</option>
+                                                    <option value="No WiFi Zone">No</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <select class="cs-select cs-skin-border" name="Swimming">
+                                                    <option value="" disabled selected>Swimming pool</option>
+                                                    <option value="Swimming pool">Yes</option>
+                                                    <option value="No Swimming pool">No</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <select class="cs-select cs-skin-border" name="bar">
+                                                    <option value="" disabled selected>Bar</option>
+                                                    <option value="Bar">Yes</option>
+                                                    <option value="No Bar">No</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Hotel Rate/Night" name="hotelrate">
+                                            </div>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <textarea class="form-control" cols="30" rows="7" placeholder="Summery of Place" name="hinfo"></textarea>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-md-12">
                                             Add Photos
                                             <div class="form-group">

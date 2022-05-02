@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%session.getAttribute("Userid").toString();%>
 <html class="no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
@@ -32,19 +33,14 @@
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
                         <div class="nav-header"><a href="javascript:void(0)" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
+                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="">Home</a></li>
-                                    <li><a href="#">Destination</a></li>
-                                    <li><a href="pages/hotel.html">Hotel</a></li>
-                                    <li><a href="pages/car.html">Car</a></li>
-                                    <li><a href="pages/blog.html">Blog</a></li>
-                                    <li><a href="pages/contact.html">Contact</a></li>
-                                    <li><a hrefq="pages/blog.html"> </a></li>
-                                    <li><a hrefq="pages/contact.html"> </a></li>
-                                    <li><a hreef="pages/blog.html"> </a></li>
-                                    <li><a href="pages/contact.html"> </a></li>
+                                    <li class="active"><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                    <li><a href="../pages/contact.jsp">Contact</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>

@@ -7,6 +7,7 @@
 <%@ include file="DB_Connection.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
@@ -43,15 +44,17 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li><a href="">Home</a></li>
-                                    <li><a href="vacation.html" class="fh5co-sub-ddown">How to Reach</a>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
                                         <ul class="fh5co-sub-menu">
-                                            <li><a href="">Cab</a></li>
-                                            <li><a href="">Bus</a></li>
-                                            <li><a href="">Flights</a></li>  
+                                            <li><a href="cab.jsp">Cab</a></li>
+                                            <li><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
                                         </ul>
                                     </li>
-                                    <li><a href="car.html">Hotels</a></li>
+                                    <li><a href="uhotel.jsp">Hotels</a></li>
+                                    <li><a href="bookdetails.jsp">Booking Details</a></li>
                                     <li><a href="flight.html">Gallery</a></li>
                                     <li><a href="flight.html">Review</a></li> 
                                     <li class="active"><a href="blog.html">Blog</a></li>
@@ -93,10 +96,12 @@
                                 <h2 class="heading-title">Travel Booking guide to book a perfect hotel</h2>
                             </div>
                             <%                            
-                    String id = request.getParameter("id");
+//                    String id = request.getParameter("id");
+                    String desc = request.getParameter("desc");
+                    session.setAttribute("destination", desc);
                         try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where id=? ");
-                            pstn1.setString(1, id);
+                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
+                            pstn1.setString(1, desc);
                             ResultSet rs = pstn1.executeQuery();
                             while (rs.next()) {
                                 String location = rs.getString(3);

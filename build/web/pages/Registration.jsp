@@ -40,25 +40,7 @@
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
                                     <li><a href="../Home.jsp">Home</a></li>
-                                    <li><a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
-                                        <ul class="fh5co-sub-menu">
-                                            <li><a href="https://www.free-css.com/free-css-templates">Family</a></li>
-                                            <li><a href="https://www.free-css.com/free-css-templates">CSS3 &amp; HTML5</a></li>
-                                            <li><a href="https://www.free-css.com/free-css-templates">Angular JS</a></li>
-                                            <li><a href="https://www.free-css.com/free-css-templates">Node JS</a></li>
-                                            <li><a href="https://www.free-css.com/free-css-templates">Django &amp; Python</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="flight.html">Flights</a></li>
-                                    <li><a href="hotel.html">Hotel</a></li>
-                                    <li><a href="car.html">Car</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
                                     <li class="active"><a href="contact.html">Contact</a></li>
-
-                                    <li><a href="pages/blog.html"> </a></li>
-                                    <li><a href="pages/contact.html"> </a></li>
-                                    <li><a href="pages/blog.html"> </a></li>
-                                    <li><a href="pages/contact.html"> </a></li>
                                     <li ><a href="login.jsp">Sign In</a></li>
                                     <li style="margin-right: -150px;"><a href="Registration.jsp">Sign Up</a></li>
                                 </ul>

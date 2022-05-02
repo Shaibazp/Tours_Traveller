@@ -26,7 +26,7 @@
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) 
             {
-                response.sendRedirect("welcome.jsp");
+                response.sendRedirect("Destination.jsp");
             }
             else
             {

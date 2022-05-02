@@ -34,6 +34,11 @@ public class saveHotels extends HttpServlet
         String hmobileno = request.getParameter("hmobileno");
         String hlandline = request.getParameter("hlandline");
         String hinfo = request.getParameter("hinfo");
+        String breakfast = request.getParameter("breakfast");
+        String fwifi = request.getParameter("fwifi");
+        String Swimming = request.getParameter("Swimming");
+        String bar = request.getParameter("bar");
+        String hotelrate = request.getParameter("hotelrate");
         
         InputStream inputStream = null; // input stream of the upload file
         InputStream inputStream2 = null; // input stream of the upload file
@@ -73,7 +78,7 @@ public class saveHotels extends HttpServlet
             conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
 
             // constructs SQL statement
-            String sql = "insert into hotels(hotelnm, placenm, hreagion, hstar, haddress, hmobileno, hlandline, hinfo, img1, img2) value(?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into hotels(hotelnm, placenm, hreagion, hstar, haddress, hmobileno, hlandline, hinfo, img1, img2, fbreakfast, fwifi, swimingpool, bar, rate) value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, hotelnm);
             pstmt.setString(2, placenm);
@@ -92,7 +97,14 @@ public class saveHotels extends HttpServlet
                 // fetches input stream of the upload file for the blob column
                 pstmt.setBlob(10, inputStream2);
             }
-
+            
+            
+            
+            pstmt.setString(11, breakfast);
+            pstmt.setString(12, fwifi);
+            pstmt.setString(13, Swimming);
+            pstmt.setString(14, bar);
+            pstmt.setString(15, hotelrate);
             // sends the statement to the database server
             int row = pstmt.executeUpdate();
             if (row > 0) {

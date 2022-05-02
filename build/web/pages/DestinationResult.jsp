@@ -7,6 +7,7 @@
 <%@ include file="DB_Connection.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <head>
         <title>Tours Traveller</title>
@@ -42,16 +43,9 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="">Home</a></li>
-                                    <li><a href="Destination.jsp">Destination</a></li>
-                                    <li><a href="pages/hotel.html">Hotel</a></li>
-                                    <li><a href="pages/car.html">Car</a></li>
-                                    <li><a href="pages/blog.html">Blog</a></li>
+                                    <li class="active"><a href="../pages/Destination.jsp">Home</a></li>
                                     <li><a href="pages/contact.html">Contact</a></li>
-                                    <li><a hrefq="pages/blog.html"> </a></li>
-                                    <li><a hrefq="pages/contact.html"> </a></li>
-                                    <li><a hreef="pages/blog.html"> </a></li>
-                                    <li><a href="pages/contact.html"> </a></li>
+                                    <li><a hrefq=""> </a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -85,7 +79,9 @@
                     String region = request.getParameter("region");
                     String season = request.getParameter("location");
                     String city = request.getParameter("city");
-
+                    
+                    session.setAttribute("location2", city);
+                    
                     if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
                         try {
                             PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=?");
@@ -94,6 +90,7 @@
                             ResultSet rs = pstn1.executeQuery();
                             while (rs.next()) {
                                 String location = rs.getString(3);
+                                
                                 byte[] imgData = rs.getBytes(7);
                                 String encode = Base64.getEncoder().encodeToString(imgData);
                                 request.setAttribute("imgbase", encode);
@@ -103,8 +100,9 @@
                             <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
+                                
                                 <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?id=<%=rs.getString(1)%>" class="btn btn-primary">Visite</a>
+                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
                             </div>
                         </div><br />
                     
