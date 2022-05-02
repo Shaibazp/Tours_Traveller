@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import javafx.scene.input.DataFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -56,6 +60,9 @@ public class savereview extends HttpServlet
         
         Connection conn = null; // connection to the database
         String message = null;  // message will be sent back to client
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();  
+        System.out.println(dtf.format(now)); 
 
         try 
         {
@@ -70,7 +77,7 @@ public class savereview extends HttpServlet
                 uname = rst.getString(2);
                 
                 // constructs SQL statement
-                String sql = "insert into review(htname, uname, coment, rating, img1) value(?,?,?,?,?)";
+                String sql = "insert into review(htname, uname, coment, rating, img1, sdate) value(?,?,?,?,?,?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, htname);
                 pstmt.setString(2, uname);
@@ -81,6 +88,7 @@ public class savereview extends HttpServlet
                     // fetches input stream of the upload file for the blob column
                     pstmt.setBlob(5, inputStream);
                 }
+                pstmt.setString(6, dtf.format(now));
                 // sends the statement to the database server
                 int row = pstmt.executeUpdate();
                 if (row > 0) {

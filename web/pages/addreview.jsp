@@ -103,7 +103,7 @@
                                         
                                     </div>
                                 </div>
-                                        <input type="submit" value="Add Review" class="btn alert-success;">
+                                        <input type="submit" value="Add Review" class="btn alert-success">
                             </div>
                         </form>
                     </div>

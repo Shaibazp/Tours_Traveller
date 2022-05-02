@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Base64"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -46,7 +47,7 @@
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
                         <div class="nav-header"><a href="javascript:void(0)" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
+                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
                                     <li><a href="../pages/Destination.jsp">Home</a></li>
@@ -58,39 +59,17 @@
                                             <li><a href="https://www.airindia.in/">Flights</a></li>  
                                         </ul>
                                     </li>
-                                    <li><a href="uhotel.jsp">Hotels</a></li>
+                                    <li class="active"><a href="uhotel.jsp">Hotels</a></li>
                                     <li><a href="bookdetails.jsp">Booking Details</a></li>
-                                    <li><a href="flight.html">Gallery</a></li>
-                                    <li><a href="flight.html">Review</a></li> 
-                                    <li class="active"><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li ><a href="bookhistory.jsp">My Booking</a></li> 
+                                    <li><a href="contact.jsp">Contact</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
-                <div class="fh5co-hero">
-                    <div class="fh5co-overlay"></div>
-                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image:url(../assets/images/cover_bg_3.jpg);">
-                        <div class="desc">
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="desc2 animate-box">
-                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                            <p>Lorem ipsum dolor sit amet</p>
-                                            <h2>Exclusive Limited Time Offer</h2>
-                                            <h3>Fly to Hong Kong via Los Angeles, USA</h3>
-                                            <span class="price">$599</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+                
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
                 <%                            
@@ -99,27 +78,58 @@
                     String city = (String)session.getAttribute("destination").toString();
                     
                     session.setAttribute("location2", city);
+                    String dhname = null;
                         try {
                             PreparedStatement pstn1 = con.prepareStatement("select * from hotels where placenm=?");
                             pstn1.setString(1, city);
                             ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
+                            while (rs.next()) 
+                            {
                                 String location = rs.getString(3);
-                                
+                                dhname = rs.getString(2);//hotel name
+                                session.setAttribute("dhname", dhname);
                                 byte[] imgData = rs.getBytes(10);
                                 String encode = Base64.getEncoder().encodeToString(imgData);
                                 request.setAttribute("imgbase", encode);
+                                PreparedStatement pstn12 = con.prepareStatement("SELECT AVG(rating),COUNT(*)AS vvv FROM review WHERE htname=?;");
+                                pstn12.setString(1, dhname);
+                                ResultSet rs1 = pstn12.executeQuery();
+                                while(rs1.next())
+                                {
+                                    String ratingvalue = "";
+                                    
+                                    String ratingstar = "";
+                                    
+                                    String rcount = rs1.getString("vvv");
+                                    float hrate = rs1.getFloat(1);
+                                    session.setAttribute("rcount", rcount);
+                                    session.setAttribute("hrate", hrate);
+                                    //System.out.println("%.2f"+hrate);
+                                    DecimalFormat df = new DecimalFormat("#.#");
+                                    if(hrate>4)
+                                    {
+                                        ratingvalue = "Exellent";
+                                        ratingstar = "*****";
+                                    }
+                                    else if(hrate>3.6 && hrate<=4)
+                                    {
+                                        ratingvalue = "Very Good";
+                                        ratingstar = "****";
+                                    }
+                                    else if(hrate>2.6 && hrate<=3.5)
+                                    {
+                                        ratingvalue = "Good";
+                                        ratingstar = "***";
+                                    }
+                                    else if(hrate<2.5 )
+                                    {
+                                        ratingvalue = "Best";
+                                        ratingstar = "**";
+                                    }
+                                    session.setAttribute("ratingvalue", ratingvalue);
+                                    session.setAttribute("ratingstar", ratingstar);
+   
                 %>
-                
-<!--                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-left" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%//=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%//=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%//=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />-->
 
                             <div class="card">
                                 <div class="card-horizontal">
@@ -128,7 +138,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title" style="color: black;font-size: 20px;"><b><%=rs.getString(2)%></b></h4>
-                                        <p class="card-text" style="margin-top: -25px;color: black;"><b>**** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4.6/5 Excellent (37)</b></p>
+                                        <p class="card-text" style="margin-top: -25px;color: black;"><b><%=ratingstar%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=df.format(hrate)%>/5 &nbsp;<%=ratingvalue%> &nbsp;(<%=rcount%>)</b></p>
                                         <p class="card-text" style="margin-top: -10px;color: black;"><b><%=rs.getString(12)%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=rs.getString(13)%></b></p>
                                         <p class="card-text" style="margin-top: -20px;color: black;"><b><%=rs.getString(14)%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=rs.getString(15)%></b></p>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -138,7 +148,7 @@
                                 </div>
                             </div><br /><br /><br /><br />
                     
-                <%
+                <%              }
                             }
                         } catch (Exception e) {
                             System.out.println(e);
@@ -186,57 +196,6 @@
                 <footer>
                     <div id="footer">
                         <div class="container">
-                            <div class="row row-bottom-padded-md">
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>About Travel</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Flights Routes</h3>
-                                    <ul>
-                                        <li><a href="">Manila flights</a></li>
-                                        <li><a href="">Dubai flights</a></li>
-                                        <li><a href="">Bangkok flights</a></li>
-                                        <li><a href="">Tokyo Flight</a></li>
-                                        <li><a href="">New York Flights</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Hotels</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Hotel</a></li>
-                                        <li><a href="">Dubai Hotel</a></li>
-                                        <li><a href="">Singapore Hotel</a></li>
-                                        <li><a href="">Manila Hotel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Interest</h3>
-                                    <ul>
-                                        <li><a href="">Beaches</a></li>
-                                        <li><a href="">Family Travel</a></li>
-                                        <li><a href="">Budget Travel</a></li>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Honeymoon and Romance</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Best Places</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Beach</a></li>
-                                        <li><a href="">Dubai</a></li>
-                                        <li><a href="">Singapore</a></li>
-                                        <li><a href="">Hongkong</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Affordable</h3>
-                                    <ul>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Fare Flights</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
                                     <p class="fh5co-social-icons"><a href=""><i class="icon-twitter2"></i></a> <a href=""><i class="icon-facebook2"></i></a> <a href=""><i class="icon-instagram"></i></a> <a href=""><i class="icon-dribbble2"></i></a> <a href=""><i class="icon-youtube"></i></a></p>

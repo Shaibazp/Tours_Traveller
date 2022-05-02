@@ -45,7 +45,13 @@
                 pstn3.setString(11, km);
                 pstn3.setString(12, basef);
                 pstn3.executeUpdate();
-                response.sendRedirect("Location.jsp?desc="+destination);
+                //response.sendRedirect("Location.jsp?desc="+destination);
+                %>
+                <script>
+                    alert("Your Cab is book successfully");
+                    window.window.location="uhotel.jsp";
+                    </script>
+                <%
                 
             }
         }

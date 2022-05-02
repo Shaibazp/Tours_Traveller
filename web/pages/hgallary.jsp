@@ -1,4 +1,13 @@
+<%@page import="java.util.Base64"%>
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.sql.*"%>
+<%@ include file="DB_Connection.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
@@ -35,62 +44,62 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li><a href="../Home.jsp">Home</a></li>
-                                    <li class="active"><a href="contact.html">Contact</a></li>
-                                    <li ><a href="login.jsp">Sign In</a></li>
-                                    <li style="margin-right: -150px;"><a href="Registration.jsp">Sign Up</a></li>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li><a href="cab.jsp">Cab</a></li>
+                                            <li><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li><a href="uhotel.jsp">Hotels</a></li>
+                                    <li><a href="bookdetails.jsp">Booking Details</a></li>
+                                    <li class="active"><a href="hgallary.jsp">Gallery</a></li>
+                                    <li><a href="viewreview.jsp">Review</a></li>
+                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
 
-                <div id="fh5co-contact" class="fh5co-section-gray">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-                                <h1><b>Login Form</b></h1>
+                <div id="fh5co-tours" class="fh5co-section-gray">
+                    
+                        
+                            <%                            
+                                String dhname = (String)session.getAttribute("dhname").toString();
+                        try {
+                            PreparedStatement pstn1 = con.prepareStatement("select * from review where htname=?");
+                            pstn1.setString(1, dhname);
+                            ResultSet rs = pstn1.executeQuery();
+                            while (rs.next()) {
+                                byte[] imgData = rs.getBytes(7);
+                                String encode = Base64.getEncoder().encodeToString(imgData);
+                                request.setAttribute("imgbase", encode);
+                                
+                %>
+                <div class="container">
+                <div class="row">
+                            <div class="row row-bottom-padded-md">
+                            <div class="" data-animate-effect="fadeIn">
+                                <div>
+                                    <center><img src="data:image/jpeg;base64,${imgbase}"  style="width: 80%;height: 60%;"></center>
+                                </div>
                             </div>
                         </div>
-                        <form action="LoginDB.jsp" method="post">
-                            <div class="row animate-box">
-                                <div class="col-md-6">
-                                    <h3 class="section-title">Book Hotels, Vehicles and Holiday Packages</h3>
-                                    <p><b>Look up well-researched holiday packages and finalize your entire trip on just one platform..</b></p>
-                                    <ul class="contact-info">
-                                        <li><i class="icon-location-pin"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
-                                        <li><i class="icon-phone2"></i>+ 1235 2355 98</li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <h2 style="margin-left: 60px;"><b>User Name</b></h2>  
-                                            </div>
-                                            <div class="form-group">
-                                                <h2 style="margin-left: 60px;"><b>Password</b></h2> 
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="username" placeholder="Enter Mobile No">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" name="password" placeholder="Enter Password">
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="submit" value="Sign In" class="btn btn-primary">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </form>
+                </div>
+                </div>
+                            <%
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                %>
+                        
+                        <br><br>
+                        
                     </div>
                 </div>
                 <div id="fh5co-testimonial">
@@ -128,61 +137,10 @@
                         </div>
                     </div>
                 </div>
-                <div id="map" class="fh5co-map"></div>
+
                 <footer>
                     <div id="footer">
                         <div class="container">
-                            <div class="row row-bottom-padded-md">
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>About Travel</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Flights Routes</h3>
-                                    <ul>
-                                        <li><a href="">Manila flights</a></li>
-                                        <li><a href="">Dubai flights</a></li>
-                                        <li><a href="">Bangkok flights</a></li>
-                                        <li><a href="">Tokyo Flight</a></li>
-                                        <li><a href="">New York Flights</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Hotels</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Hotel</a></li>
-                                        <li><a href="">Dubai Hotel</a></li>
-                                        <li><a href="">Singapore Hotel</a></li>
-                                        <li><a href="">Manila Hotel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Interest</h3>
-                                    <ul>
-                                        <li><a href="">Beaches</a></li>
-                                        <li><a href="">Family Travel</a></li>
-                                        <li><a href="">Budget Travel</a></li>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Honeymoon and Romance</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Best Places</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Beach</a></li>
-                                        <li><a href="">Dubai</a></li>
-                                        <li><a href="">Singapore</a></li>
-                                        <li><a href="">Hongkong</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Affordable</h3>
-                                    <ul>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Fare Flights</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
                                     <p class="fh5co-social-icons"><a href=""><i class="icon-twitter2"></i></a> <a href=""><i class="icon-facebook2"></i></a> <a href=""><i class="icon-instagram"></i></a> <a href=""><i class="icon-dribbble2"></i></a> <a href=""><i class="icon-youtube"></i></a></p>
@@ -207,8 +165,6 @@
         <script src="../assets/js/bootstrap-datepicker.min.js"></script>
         <script src="../assets/js/classie.js"></script>
         <script src="../assets/js/selectFx.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBc7sEZqdqwxb0cKJ3f85nGOZt2fNYqDVg&amp;sensor=false"></script>
-        <script src="../assets/js/google_map.js"></script>
         <script src="../assets/js/main.js"></script>
         <div id="freecssfooter">
             <div id="fcssholder">

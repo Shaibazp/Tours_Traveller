@@ -109,13 +109,6 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="desc2 animate-box">
-                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                            <p>Lorem ipsum dolor sit amet</p>
-                                            <h2>Exclusive Limited Time Offer</h2>
-                                            <h3>Fly to Hong Kong via Los Angeles, USA</h3>
-                                            <span class="price">$599</span></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,50 +176,6 @@
                                     </div>
                                 </a></div>
                         </div>
-                        <div class="row row-bottom-padded-md">
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-1.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>New York</h3>
-                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-2.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>Philippines</h3>
-                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-3.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>Hongkong</h3>
-                                        <span>2 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="https://www.free-css.com/free-css-templates">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-4.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>New York</h3>
-                                        <span>3 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-5.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>Philippines</h3>
-                                        <span>4 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div><img src="../assets/images/place-6.jpg" alt="website template image" class="img-responsive">
-                                    <div class="desc"><span></span>
-                                        <h3>Hongkong</h3>
-                                        <span>2 nights</span><span class="price">$1,000</span><a class="btn btn-primary btn-outline" href="">Book Now <i class="icon-arrow-right22"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div id="fh5co-testimonial">
@@ -267,57 +216,7 @@
                 <footer>
                     <div id="footer">
                         <div class="container">
-                            <div class="row row-bottom-padded-md">
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>About Travel</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Flights Routes</h3>
-                                    <ul>
-                                        <li><a href="">Manila flights</a></li>
-                                        <li><a href="">Dubai flights</a></li>
-                                        <li><a href="">Bangkok flights</a></li>
-                                        <li><a href="">Tokyo Flight</a></li>
-                                        <li><a href="">New York Flights</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Hotels</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Hotel</a></li>
-                                        <li><a href="">Dubai Hotel</a></li>
-                                        <li><a href="">Singapore Hotel</a></li>
-                                        <li><a href="">Manila Hotel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Interest</h3>
-                                    <ul>
-                                        <li><a href="">Beaches</a></li>
-                                        <li><a href="">Family Travel</a></li>
-                                        <li><a href="">Budget Travel</a></li>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Honeymoon and Romance</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Best Places</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Beach</a></li>
-                                        <li><a href="">Dubai</a></li>
-                                        <li><a href="">Singapore</a></li>
-                                        <li><a href="">Hongkong</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Affordable</h3>
-                                    <ul>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Fare Flights</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
                                     <p class="fh5co-social-icons"><a href=""><i class="icon-twitter2"></i></a> <a href=""><i class="icon-facebook2"></i></a> <a href=""><i class="icon-instagram"></i></a> <a href=""><i class="icon-dribbble2"></i></a> <a href=""><i class="icon-youtube"></i></a></p>

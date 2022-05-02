@@ -32,7 +32,7 @@
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
                         <div class="nav-header"><a href="javascript:void(0)" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
+                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
                                     <li><a href="../Home.jsp">Home</a></li>

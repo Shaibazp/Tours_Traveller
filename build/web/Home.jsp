@@ -30,7 +30,8 @@
             <div id="fh5co-page">
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
-                        <div class="nav-header"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
+                        <div class="nav-header">
+                            <h1 id="fh5co-logo"><a href="https://www.free-css.com/free-css-templates"><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
                                     <li class="active"><a href="Home.jsp">Home</a></li>
