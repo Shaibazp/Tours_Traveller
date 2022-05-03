@@ -44,6 +44,7 @@
                                             <li><a href="Tourism.jsp">Add Source Location</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="helpdesk.jsp">Help Desk</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>

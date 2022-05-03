@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ include file="DB_Connection.jsp"%>
 <%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -36,11 +37,19 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="../pages/Destination.jsp">Home</a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href="../pages/contact.jsp">Contact</a></li>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li><a href="cab.jsp">Cab</a></li>
+                                            <li><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li ><a href="uhotel.jsp">Hotels</a></li>
+                                    <li><a href="bookdetails.jsp">Booking Details</a></li>
+                                    <li ><a href="bookhistory.jsp">My Booking</a></li> 
+                                    <li class="active"><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -70,26 +79,60 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Name">
+                                        <form name="">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Name" name="username">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Email">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Email" name="usermail">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <textarea class="form-control" cols="30" rows="7" placeholder="Message"></textarea>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" cols="30" rows="7" placeholder="Message" name="userquery"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="submit" value="Send Message" class="btn btn-primary">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Send Message" name ="addquery" class="btn btn-primary">
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
+                                        <%
+                                            if (request.getParameter("addquery") != null) 
+                                            {
+                                                String uid = (String)session.getAttribute("Userid").toString();
+                                                String username = request.getParameter("username");
+                                                String usermail = request.getParameter("usermail");
+                                                String userquery = request.getParameter("userquery");
+                                                
+                                                try 
+                                                {
+                                                    String revw = request.getParameter("addquery");
+                                                    PreparedStatement pstmt = con.prepareStatement("insert into query(username, usermail, userquery, qstatus, uid) values(?,?,?,?,?)");
+                                                    pstmt.setString(1, username);
+                                                    pstmt.setString(2, usermail);
+                                                    pstmt.setString(3, userquery);
+                                                    pstmt.setString(4, "0");
+                                                    pstmt.setString(5, uid);
+                                                    pstmt.executeUpdate();
+                                                    %>
+                                                        <script>
+                                                            window.alert("We will answer your query shortly...\nOn your Email-Id");
+                                                            window.location = "contact.jsp";
+                                                            </script>
+                                                    <%
+                                                    //response.sendRedirect("contact.jsp");
+                                                }
+                                                catch(Exception e)
+                                                {
+                                                    System.out.println(e);
+                                                }
+                                            }
+                                        %>
                                     </div>
                                 </div>
                             </div>

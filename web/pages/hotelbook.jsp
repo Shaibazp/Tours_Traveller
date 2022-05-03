@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Base64"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -73,8 +74,13 @@
                             <%//                    String id = request.getParameter("id");
                                 String htname = null;
                                 String hid = request.getParameter("hid");
+                                String hrate = (String)session.getAttribute("hrate").toString();
+                                System.out.println(hrate);
+                                float ratet = Float.parseFloat(hrate);
+                                DecimalFormat df = new DecimalFormat("#.#");
                                 //session.setAttribute("destination", desc);
                                 try {
+                                    
                                     PreparedStatement pstn1 = con.prepareStatement("select * from hotels where hid=? ");
                                     pstn1.setString(1, hid);
                                     ResultSet rs = pstn1.executeQuery();
@@ -93,7 +99,7 @@
                             %>
                             <div class="col-md-6 animate-box" >
                                 <p style="color: black;font-size: x-large;"><b><%=rs.getString(2)%></b></p>
-                                <p style="color: black;margin-top: -5%;">**** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4.6/5 Excellent (37)</b></p>
+                                <p style="color: black;margin-top: -5%;"><%=(String)session.getAttribute("ratingstar").toString()%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=df.format(ratet)%>/5&nbsp;<%=(String)session.getAttribute("ratingvalue").toString()%>&nbsp;(<%=(String)session.getAttribute("rcount").toString()%>)</b></p>
                                 <p style="color: black;margin-top: -3%;"><%=rs.getString(6)%></p>
                                 <p style="color: black;margin-top: -2%;"><b><%=rs.getString(12)%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=rs.getString(13)%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=rs.getString(15)%></b></p>
                                 <p style="color: black;margin-top: -2%;"><b><%=rs.getString(14)%></b></b></p>

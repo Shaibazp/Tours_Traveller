@@ -1,5 +1,6 @@
 <%session.getAttribute("Userid").toString();%>
 <!DOCTYPE html>
+<%@ include file="DB_Connection.jsp"%>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
@@ -32,10 +33,10 @@
                 <header id="fh5co-header-section" class="sticky-banner">
                     <div class="container">
                         <div class="nav-header"><a href="javascript:void(0)" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Travel</a></h1>
+                            <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="../pages/AdminHome.jsp">Home</a></li>
+                                    <li ><a href="../pages/AdminHome.jsp">Home</a></li>
                                     <li><a href="Places.jsp">Add Places</a></li>
                                     <li><a href="Hotels.jsp">Add Hotels</a></li>
                                     <li><a class="active fh5co-sub-ddown" href="">Tourism</a>
@@ -44,86 +45,64 @@
                                             <li><a href="Tourism.jsp">Add Source Location</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="helpdesk.jsp">Help Desk</a></li>
+                                    <li class="active"><a href="helpdesk.jsp">Help Desk</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
-                <div class="fh5co-hero">
-                    <div class="fh5co-overlay"></div>
-                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image:url(../assets/images/cover_bg_1.jpg);">
-                        <div class="desc">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="desc2 animate-box">
-                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                            <p>Lorem ipsum dolor sit amet</p>
-                                            <h2>Exclusive Limited Time Offer</h2>
-                                            <h3>Fly to Hong Kong via Los Angeles, USA</h3>
-                                            <span class="price">$599</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div id="fh5co-blog-section" class="fh5co-section-gray">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-                                <h3>Our Blog</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+                                <h3>Help Desk</h3>
+                                
                             </div>
                         </div>
+                        
+                                <table style="width:100%">
+                                    <tr><th>Sr No</th><th>User Name</th>
+                                        <th>Query</th><th>Answer</th><th>Action</th></tr>
+                                    <%
+                                        try 
+                                        {   int cnt = 1;
+                                            PreparedStatement pstn11 = con.prepareStatement("select * from query where qstatus='0'");
+                                            ResultSet rs1 = pstn11.executeQuery();
+                                            while(rs1.next())
+                                            {
+                                                
+                                                
+                                    %>
+                                            <form action="addqueryans.jsp?uid=<%=rs1.getString(1)%>&mailid=<%=rs1.getString(3)%>&query=<%=rs1.getString(4)%>" method="post">
+                                                <tr>
+                                                    <td><%=cnt++%></td>
+                                                    <td><%=rs1.getString(2)%></td>
+                                                    <td><%=rs1.getString(4)%></td>
+                                                    <td><textarea name="qans" style="width: 100%;"></textarea></td>
+                                                    <td><button class="btn alert-success">Submit</button>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </form>
+                                    <%
+                                            }
+                                        }
+                                        catch(Exception e)
+                                        {
+                                            System.out.println(e);
+                                        }
+                                    %>
+                                    
+                                    
+                                </table>
+                        <style>
+                                table, th, td {
+                                    border: solid black;
+                                }
+                            </style>
                     </div>
-                    <div class="container">
-                        <div class="row row-bottom-padded-md">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box"><a href=""><img class="img-responsive" src="assets/images/place-1.jpg" alt="website template image"></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="">30% Discount to Travel All Around the World</a></h3>
-                                            <span class="posted_by">Sep. 15th</span> <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="">Learn More...</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box"><a href=""><img class="img-responsive" src="assets/images/place-2.jpg" alt="website template image"></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="">Planning for Vacation</a></h3>
-                                            <span class="posted_by">Sep. 15th</span> <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="">Learn More...</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix visible-sm-block"></div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box"><a href=""><img class="img-responsive" src="assets/images/place-3.jpg" alt="website template image"></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="">Visit Tokyo Japan</a></h3>
-                                            <span class="posted_by">Sep. 15th</span> <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="">Learn More...</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix visible-md-block"></div>
-                        </div>
-                        <div class="col-md-12 text-center animate-box">
-                            <p><a class="btn btn-primary btn-outline btn-lg" href="">See All Post <i class="icon-arrow-right22"></i></a></p>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div id="fh5co-testimonial">
                     <div class="container">
@@ -163,57 +142,6 @@
                 <footer>
                     <div id="footer">
                         <div class="container">
-                            <div class="row row-bottom-padded-md">
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>About Travel</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Flights Routes</h3>
-                                    <ul>
-                                        <li><a href="">Manila flights</a></li>
-                                        <li><a href="">Dubai flights</a></li>
-                                        <li><a href="">Bangkok flights</a></li>
-                                        <li><a href="">Tokyo Flight</a></li>
-                                        <li><a href="">New York Flights</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Hotels</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Hotel</a></li>
-                                        <li><a href="">Dubai Hotel</a></li>
-                                        <li><a href="">Singapore Hotel</a></li>
-                                        <li><a href="">Manila Hotel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Interest</h3>
-                                    <ul>
-                                        <li><a href="">Beaches</a></li>
-                                        <li><a href="">Family Travel</a></li>
-                                        <li><a href="">Budget Travel</a></li>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Honeymoon and Romance</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Best Places</h3>
-                                    <ul>
-                                        <li><a href="">Boracay Beach</a></li>
-                                        <li><a href="">Dubai</a></li>
-                                        <li><a href="">Singapore</a></li>
-                                        <li><a href="">Hongkong</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Affordable</h3>
-                                    <ul>
-                                        <li><a href="">Food &amp; Drink</a></li>
-                                        <li><a href="">Fare Flights</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
                                     <p class="fh5co-social-icons"><a href=""><i class="icon-twitter2"></i></a> <a href=""><i class="icon-facebook2"></i></a> <a href=""><i class="icon-instagram"></i></a> <a href=""><i class="icon-dribbble2"></i></a> <a href=""><i class="icon-youtube"></i></a></p>
