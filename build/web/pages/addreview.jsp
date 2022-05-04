@@ -84,7 +84,6 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <section>
                                                 <select class="cs-select cs-skin-border" name="hstar">
-                                                    
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -100,10 +99,26 @@
                                                 <input type="file" id="myFile" name="photo1">
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label style="color: #c9302c;">Smart Tourism Review</label>
+                                                <textarea class="form-control" placeholder="Add Hotel Comment" name="totelcomment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <select class="cs-select cs-skin-border" name="hotelstar">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </section>
+                                        </div>
                                     </div>
                                 </div>
-                                        <input type="submit" value="Add Review" class="btn alert-success">
+                                        <input type="submit" value="Add Review" class="btn alert-success" style="margin-left: 52%;">
                             </div>
                         </form>
                     </div>

@@ -43,8 +43,9 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active"><a href="../pages/Destination.jsp">Home</a></li>
-                                    <li><a href="pages/contact.html">Contact</a></li>
+                                    <li ><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
+                                    <li><a href="pages/contact.html">Help Center</a></li>
                                     <li><a hrefq=""> </a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
@@ -60,14 +61,16 @@
                     String region = request.getParameter("region");
                     String season = request.getParameter("location");
                     String city = request.getParameter("city");
+                    String nodays = request.getParameter("nodays");
                     
                     session.setAttribute("location2", city);
                     
                     if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
                         try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=?");
+                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=? AND duration=?");
                             pstn1.setString(1, region);
                             pstn1.setString(2, season);
+                            pstn1.setString(3, nodays);
                             ResultSet rs = pstn1.executeQuery();
                             while (rs.next()) {
                                 String location = rs.getString(3);
@@ -92,8 +95,35 @@
                         } catch (Exception e) {
                             System.out.println(e);
                         }
-                    } else {
-                        System.out.println("city");
+                    } else 
+                    {
+                        try {
+                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
+                            pstn1.setString(1, city);
+                            ResultSet rs = pstn1.executeQuery();
+                            while (rs.next()) {
+                                String location = rs.getString(3);
+                                
+                                byte[] imgData = rs.getBytes(7);
+                                String encode = Base64.getEncoder().encodeToString(imgData);
+                                request.setAttribute("imgbase", encode);
+                %>
+                
+                        <div class="card mb-3">
+                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
+                                
+                                <p class="card-text"><%=rs.getString(6)%></p>
+                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
+                            </div>
+                        </div><br />
+                    
+                <%
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
                     }
                 %>
                 </div>

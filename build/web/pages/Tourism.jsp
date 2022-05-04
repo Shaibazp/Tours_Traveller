@@ -1,4 +1,5 @@
 <%session.getAttribute("Userid").toString();%>
+<%@ include file="DB_Connection.jsp"%>
 <!DOCTYPE html>
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -42,6 +43,7 @@
                                         <ul class="fh5co-sub-menu">
                                             <li><a href="addvehicle.jsp">Add Vehicle</a></li>
                                             <li><a href="Tourism.jsp">Add Source Location</a></li>
+                                            <li><a href="addTouristpoint.jsp">Add Tourist Point</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="helpdesk.jsp">Help Desk</a></li>
@@ -81,11 +83,22 @@
                                             <section>
                                                 <select class="cs-select cs-skin-border" name="pname">
                                                     <option value="" disabled selected>Select Place</option>
-                                                    <option value="Shimla">Shimla</option>
-                                                    <option value="Udaipur">Udaipur</option>
-                                                    <option value="Delhi">Delhi</option>
-                                                    <option value="Agra">Agra</option>
-                                                    <option value="Rajasthan">Rajasthan</option>
+                                                
+                                                    <%                                                try {
+                                                            PreparedStatement pstn1 = con.prepareStatement("select * from places");
+                                                            ResultSet rs = pstn1.executeQuery();
+                                                            while (rs.next()) {
+
+                                                    %>
+
+
+                                                    <option value="<%=rs.getString(2)%>"><%=rs.getString(2)%></option>
+                                                    <%
+                                                            }
+                                                        } catch (Exception e) {
+                                                            System.out.println(e);
+                                                        }
+                                                    %>
                                                 </select>
                                             </section>
                                         </div>

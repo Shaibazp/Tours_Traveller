@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Base64"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -11,6 +12,7 @@
 <html class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Tours Traveller</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +58,8 @@
                                     <li><a href="uhotel.jsp">Hotels</a></li>
                                     <li><a href="bookdetails.jsp">Booking Details</a></li>
                                     <li ><a href="bookhistory.jsp">My Booking</a></li> 
-                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
+                                    <li><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -68,37 +71,39 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 animate-box">
-                                <h2 class="heading-title">Travel Booking guide to book a perfect hotel</h2>
+                                <h2 class="heading-title"><center>Travel Booking guide to book a perfect tour package.</center></h2>
                             </div>
-                            <%                            
+                            <%
 //                    String id = request.getParameter("id");
-                    String desc = request.getParameter("desc");
-                    session.setAttribute("destination", desc);
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
-                            pstn1.setString(1, desc);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                                
-                                byte[] imgData2 = rs.getBytes(8);
-                                String encode2 = Base64.getEncoder().encodeToString(imgData2);
-                                request.setAttribute("imgbase2", encode2);
-                %>
+                                String desc = request.getParameter("desc");
+                                session.setAttribute("destination", desc);
+                                try {
+                                    PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
+                                    pstn1.setString(1, desc);
+                                    ResultSet rs = pstn1.executeQuery();
+                                    while (rs.next()) {
+                                        String location = rs.getString(3);
+                                        byte[] imgData = rs.getBytes(7);
+                                        String encode = Base64.getEncoder().encodeToString(imgData);
+                                        request.setAttribute("imgbase", encode);
+
+                                        byte[] imgData2 = rs.getBytes(8);
+                                        String encode2 = Base64.getEncoder().encodeToString(imgData2);
+                                        request.setAttribute("imgbase2", encode2);
+                            %>
                             <div class="col-md-6 animate-box">
+                                <p style="font-size: x-large;color: black;"><b><%=rs.getString(2)%></b></p>
+                                <p style="margin-top: -5%;"><b><%=rs.getString(3)%> Days required to visit this place.</b></p>
                                 <p><%=rs.getString(6)%></p>
                             </div>
                             <div class="col-md-6 animate-box"><img class="img-responsive" src="data:image/jpeg;base64,${imgbase}" alt="website template image">
                             </div>
                             <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                %>
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println(e);
+                                }
+                            %>
                         </div>
                         <br><br>
                         <div class="row row-bottom-padded-md">
@@ -114,10 +119,45 @@
                             </div>
                             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
                                 <div><img src="data:image/jpeg;base64,${imgbase}" alt="website template image" class="img-responsive">
-                                        
+
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                                
+                
+                                <div class="container" style="margin-bottom: -10%;">              
+                                    <h2 class="heading-title"><center><b>Tourist Places</b></center></h2>
+                    </div>
+                                
+                <div id="fh5co-tours" class="fh5co-section-gray">
+                    <div class="container">
+                        <%
+                            try {
+                                PreparedStatement pstn1 = con.prepareStatement("select * from subplace where placename=? ");
+                                pstn1.setString(1, desc);
+                                ResultSet rs = pstn1.executeQuery();
+                                while (rs.next()) {
+
+                        %>
+                        <div class="card">
+                            <div class="card-header" style="color: #000;font-size: x-large;margin-top: 0%;">
+                                <b><%=rs.getString(3)%></b>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" style="margin-top: 0px;color: black;"><b><%=rs.getString(5)%> Days required to visit this place.</b></p>
+                                <p class="card-text" style="margin-top: 0px;color: black;"><%=rs.getString(4)%></p>
+                            </div>
+                        </div><br />
+
+                        <%
+                                }
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+
+                        %>
                     </div>
                 </div>
                 <div id="fh5co-testimonial">

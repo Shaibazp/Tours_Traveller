@@ -39,8 +39,8 @@
                                     <li class="active"><a href="../pages/Destination.jsp">Home</a></li>
                                     <li><a href=""></a></li>
                                     <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href="../pages/contact.jsp">Contact</a></li>
+                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
+                                    <li><a href="../pages/contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -80,9 +80,22 @@
                                                                     <label>Select Season</label>
                                                                     <select class="cs-select cs-skin-border" name="location">
                                                                         <option>Select Season</option>
-                                                                        <option value="Winnter"  >Winnter</option>
+                                                                        <option value="Winter"  >Winter</option>
                                                                         <option value="Summer">Summer</option>
                                                                         <option value="Rainy">Rainy</option>
+                                                                    </select>
+                                                                </section>
+                                                            </div>
+                                                            <div class="col-sm-12 mt">
+                                                                <section>
+                                                                    <label>Select Day</label>
+                                                                    <select class="cs-select cs-skin-border" name="nodays">
+                                                                        <option>Select Day</option>
+                                                                        <option value="1" >1-days</option>
+                                                                        <option value="2">2-days</option>
+                                                                        <option value="3">3-days</option>
+                                                                        <option value="4">4-days</option>
+                                                                        <option value="5">5-days</option>
                                                                     </select>
                                                                 </section>
                                                             </div>
@@ -96,8 +109,8 @@
                                                         <div class="row">
                                                             <div class="col-xxs-12 col-xs-12 mt">
                                                                 <div class="input-field">
-                                                                    <label>City:</label>
-                                                                    <input type="text" class="form-control" placeholder="Enter Location" name="city">
+                                                                    <label>Place :</label>
+                                                                    <input type="text" class="form-control" placeholder="Enter Place" name="city">
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-12">

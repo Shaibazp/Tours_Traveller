@@ -43,6 +43,7 @@
                                         <ul class="fh5co-sub-menu">
                                             <li><a href="addvehicle.jsp">Add Vehicle</a></li>
                                             <li><a href="Tourism.jsp">Add Source Location</a></li>
+                                            <li><a href="addTouristpoint.jsp">Add Tourist Point</a></li>
                                         </ul>
                                     </li>
                                     <li class="active"><a href="helpdesk.jsp">Help Desk</a></li>

@@ -11,6 +11,7 @@
 <%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Tours Traveller</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +64,7 @@
                                     <li><a href="bookdetails.jsp">Booking Details</a></li>
                                     <li><a href="hgallary.jsp">Gallery</a></li>
                                     <li class="active"><a href="../pages/viewreview.jsp">Review</a></li> 
-                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -73,6 +74,7 @@
                 
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
+                        <center><b><p style="font-size: xx-large;color: #000;margin-top: -5%;">Hotel <%=(String)session.getAttribute("dhname").toString()%> Review</p></b></center>
                 <%                            
                     String dhname = (String)session.getAttribute("dhname").toString();
                     String hrate = (String)session.getAttribute("hrate").toString();
@@ -87,19 +89,17 @@
                             {
                                 
                 %>
+                
                             <div class="card">
                                 <div class="card-horizontal">
-                                    
                                     <div class="card-body">
-                                        <h4 class="card-title" style="color: #F64E8B;font-size: xx-large;"><b><%=dhname%></b></h4>
-                                        <p class="card-text" style="margin-top: -25px;color: black;"><%=(String)session.getAttribute("ratingstar").toString()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=df.format(ratet)%>/5&nbsp;<%=(String)session.getAttribute("ratingvalue").toString()%>&nbsp;(<%=(String)session.getAttribute("rcount").toString()%>)</p>
+                                        <p class="card-text" style="color: black;"><%=(String)session.getAttribute("ratingstar").toString()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=df.format(ratet)%>/5&nbsp;<%=(String)session.getAttribute("ratingvalue").toString()%>&nbsp;(<%=(String)session.getAttribute("rcount").toString()%>)</p>
                                         <p class="card-text" style="margin-top: -25px;color: black;"><%=rs.getString(8)%> </p>
                                         <p class="card-text" style="margin-top: -25px;color: black;"><%=rs.getString(4)%> </p>
                                         <h4 class="card-title" style="color: black;font-size: 20px;margin-top: -20px;"><b><%=rs.getString(5)%>/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;<%=rs.getString(3)%></b></h4>
-                                        <h4 class="card-title" style="color: black;font-size: 20px;margin-top: -20px;">********************************************************************************************</h4>
                                     </div>
                                 </div>
-                            </div>
+                            </div><br />
                     
                 <%              
                             }

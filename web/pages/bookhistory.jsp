@@ -62,7 +62,8 @@
                                     <li><a href="uhotel.jsp">Hotels</a></li>
                                     <li ><a href="bookdetails.jsp">Booking Details</a></li>
                                     <li class="active" ><a href="bookhistory.jsp">My Booking</a></li>
-                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
+                                    <li><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>

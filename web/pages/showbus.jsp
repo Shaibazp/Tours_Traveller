@@ -6,11 +6,12 @@
 <%@page import="java.sql.*"%>
 <%@ include file="DB_Connection.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <%session.getAttribute("Userid").toString();%>
+<!DOCTYPE html>
 <html class="no-js">
     <head>
         <title>Tours Traveller</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,10 +44,20 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li ><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li class="active"><a href="cab.jsp">Cab</a></li>
+                                            <li><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li><a href="car.html">Hotels</a></li>
+                                    <li><a href="bookdetails.jsp">Booking Details</a></li>
+                                    <li ><a href="bookhistory.jsp">My Booking</a></li> 
                                     <li ><a href="userviewwebreview.jsp">Review</a></li>
-                                    <li><a href="pages/contact.html">Help Center</a></li>
-                                    <li><a hrefq=""> </a></li>
+                                    <li><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
@@ -57,76 +68,66 @@
 
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
-                <%                            
-                    String region = request.getParameter("region");
-                    String season = request.getParameter("location");
-                    String city = request.getParameter("city");
-                    String nodays = request.getParameter("nodays");
-                    
-                    session.setAttribute("location2", city);
-                    
-                    if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=? AND duration=?");
-                            pstn1.setString(1, region);
-                            pstn1.setString(2, season);
-                            pstn1.setString(3, nodays);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    } else 
-                    {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
-                            pstn1.setString(1, city);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                %>
-                </div>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Car Name</th>
+                                    <th scope="col">Car Type</th>
+                                    <th scope="col">Ac/Non-Ac</th>
+                                    <th scope="col">Rate/Km</th>
+                                    <th scope="col">Distance(Km)</th>
+                                    <th scope="col">Base Fare</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    try 
+                                    {
+                                        String srcnm = request.getParameter("srcnm");
+                                        session.setAttribute("source", srcnm);
+                                        String destnm = request.getParameter("destnm");
+                                        int cnt = 1;
+                                        PreparedStatement pstn1 = con.prepareStatement("select * from srctodes where pname=? AND snm=?");
+                                        pstn1.setString(1, destnm);
+                                        pstn1.setString(2, srcnm);
+                                        ResultSet rs = pstn1.executeQuery();
+                                        if (rs.next()) 
+                                        {
+                                            long destkm = rs.getLong(4);
+                                            PreparedStatement pstn2 = con.prepareStatement("select * from vehicle where vtype='40-Seater' OR vtype='18-Seater'");
+                                            ResultSet rs2 = pstn2.executeQuery();
+                                            while (rs2.next()) 
+                                            {
+                                                long basef = destkm*rs2.getLong(7);
+                                                %>
+                                                <tr>
+                                                    <th scope="row"><%=cnt++%></th>
+                                                    <td><%=rs2.getString(2)%></td>
+                                                    <td><%=rs2.getString(4)%></td>
+                                                    <td><%=rs2.getString(3)%></td>
+                                                    <td><%=rs2.getString(7)%></td>
+                                                    <td><%=destkm%></td>
+                                                    <td><%=basef%></td>
+                                                    <td><a class="btn"href="bookvehicle.jsp?vid=<%=rs2.getString(1)%>&basef=<%=basef%>">Book</a></td>
+                                                </tr>
+                                                <%
+                                            }
+                                        }
+                                    } 
+                                    catch (Exception e) 
+                                    {
+                                        System.out.println(e);
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
                 </div>
 
                 <div id="fh5co-testimonial">

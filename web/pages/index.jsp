@@ -1,14 +1,6 @@
-<%@page import="java.util.Base64"%>
-<%@page import="java.io.OutputStream"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.util.Date"%>
-<%@page import="java.sql.*"%>
-<%@ include file="DB_Connection.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<%session.getAttribute("Userid").toString();%>
 <html class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <title>Tours Traveller</title>
         <meta charset="utf-8">
@@ -43,92 +35,43 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li ><a href="../pages/Destination.jsp">Home</a></li>
-                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
-                                    <li><a href="pages/contact.html">Help Center</a></li>
-                                    <li><a hrefq=""> </a></li>
-                                    <li><a href="logout.jsp">Logout</a></li>
+                                    <li class="active"><a href="../pages/index.jsp">Home</a></li>
+                                    <li ><a href="../pages/showebsitereview.jsp">Review</a></li>
+                                    <li><a href="../pages/contact.html">Contact</a></li>
+                                    <li ><a href="../pages/login.jsp">Sign In</a></li>
+                                    <li style="margin-right: -150px;"><a href="../pages/Registration.jsp">Sign Up</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
-
-
-                <div id="fh5co-tours" class="fh5co-section-gray">
+                <div class="fh5co-hero">
+                    <div class="fh5co-overlay"></div>
+                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image:url(../assets/images/cover_bg_1.jpg);">
+                        <div class="desc">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="desc2 animate-box">
+                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+                                            <h2>Welcome To Smart Tourism</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="fh5co-contact" class="fh5co-section-gray">
                     <div class="container">
-                <%                            
-                    String region = request.getParameter("region");
-                    String season = request.getParameter("location");
-                    String city = request.getParameter("city");
-                    String nodays = request.getParameter("nodays");
-                    
-                    session.setAttribute("location2", city);
-                    
-                    if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=? AND duration=?");
-                            pstn1.setString(1, region);
-                            pstn1.setString(2, season);
-                            pstn1.setString(3, nodays);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                                <h3>Contact Information</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    } else 
-                    {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
-                            pstn1.setString(1, city);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                %>
+                        </div>
+                        
+                    </div>
                 </div>
-                </div>
-
                 <div id="fh5co-testimonial">
                     <div class="container">
                         <div class="row animate-box">
@@ -164,6 +107,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="map" class="fh5co-map"></div>
                 <footer>
                     <div id="footer">
                         <div class="container">
@@ -191,6 +135,8 @@
         <script src="../assets/js/bootstrap-datepicker.min.js"></script>
         <script src="../assets/js/classie.js"></script>
         <script src="../assets/js/selectFx.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBc7sEZqdqwxb0cKJ3f85nGOZt2fNYqDVg&amp;sensor=false"></script>
+        <script src="../assets/js/google_map.js"></script>
         <script src="../assets/js/main.js"></script>
         <div id="freecssfooter">
             <div id="fcssholder">

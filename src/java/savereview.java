@@ -37,6 +37,9 @@ public class savereview extends HttpServlet
         // gets values of text fields
         String comment = request.getParameter("comment");
         String hstar = request.getParameter("hstar");
+        String totelcomment = request.getParameter("totelcomment");
+        String hotelstar = request.getParameter("hotelstar");
+        
         String htname = (String)ss.getAttribute("hotelname").toString();
         String uname = null;
         String uid  = (String)ss.getAttribute("Userid").toString();
@@ -77,7 +80,7 @@ public class savereview extends HttpServlet
                 uname = rst.getString(2);
                 
                 // constructs SQL statement
-                String sql = "insert into review(htname, uname, coment, rating, img1, sdate) value(?,?,?,?,?,?)";
+                String sql = "insert into review(htname, uname, coment, rating, img1, sdate, totelcomment, hotelstar) value(?,?,?,?,?,?,?,?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, htname);
                 pstmt.setString(2, uname);
@@ -89,6 +92,8 @@ public class savereview extends HttpServlet
                     pstmt.setBlob(5, inputStream);
                 }
                 pstmt.setString(6, dtf.format(now));
+                pstmt.setString(7, totelcomment);
+                pstmt.setString(8, hotelstar);
                 // sends the statement to the database server
                 int row = pstmt.executeUpdate();
                 if (row > 0) {

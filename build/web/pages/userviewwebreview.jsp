@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Base64"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -10,6 +11,7 @@
 <%session.getAttribute("Userid").toString();%>
 <html class="no-js">
     <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Tours Traveller</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +27,12 @@
             #freecssfooter div#fcssholder div:first-child{display:block;}
             #freecssfooter div#fcssholder div:first-child a{float:none;margin:0 auto;}
         </style></head>
+    <style>
+            .card-horizontal {
+                display: flex;
+                flex: 1 1 auto;
+            }
+        </style>
     <body>
         <script type="text/javascript">
             (function () {
@@ -43,88 +51,85 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li ><a href="../pages/Destination.jsp">Home</a></li>
-                                    <li ><a href="userviewwebreview.jsp">Review</a></li>
-                                    <li><a href="pages/contact.html">Help Center</a></li>
-                                    <li><a hrefq=""> </a></li>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li><a href="cab.jsp">Cab</a></li>
+                                            <li><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li><a href="uhotel.jsp">Hotels</a></li>
+                                    <li ><a href="bookdetails.jsp">Booking Details</a></li>
+                                    <li  ><a href="bookhistory.jsp">My Booking</a></li>
+                                    <li class="active"><a href="userviewwebreview.jsp">Review</a></li>
+                                    <li><a href="../pages/contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
-
-
+                
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
-                <%                            
-                    String region = request.getParameter("region");
-                    String season = request.getParameter("location");
-                    String city = request.getParameter("city");
-                    String nodays = request.getParameter("nodays");
-                    
-                    session.setAttribute("location2", city);
-                    
-                    if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=? AND duration=?");
-                            pstn1.setString(1, region);
-                            pstn1.setString(2, season);
-                            pstn1.setString(3, nodays);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
+                        <center><b><p style="font-size: xx-large;color: #000;margin-top: -5%;">Smart Tourism Review</p></b></center>
                 <%
+                        DecimalFormat df = new DecimalFormat("#.#");
+                        try {
+                            PreparedStatement pstn1 = con.prepareStatement("select * from review ");
+                            ResultSet rs = pstn1.executeQuery();
+                            while (rs.next()) 
+                            {
+                                String webratingvalue = "";
+                                    
+                                    String webratingstar = "";
+                                    int webhrate = rs.getInt(10);
+                                if(webhrate==5)
+                                    {
+                                        webratingvalue = "Exellent";
+                                        webratingstar = "*****";
+                                    }
+                                    else if(webhrate==4)
+                                    {
+                                        webratingvalue = "Very Good";
+                                        webratingstar = "****";
+                                    }
+                                    else if(webhrate==3)
+                                    {
+                                        webratingvalue = "Good";
+                                        webratingstar = "***";
+                                    }
+                                    else if(webhrate==2 )
+                                    {System.out.println("in 2");
+                                        webratingvalue = "Average";
+                                        webratingstar = "**";
+                                    }
+                                else if(webhrate==1 )
+                                    {
+                                        webratingvalue = "Poor";
+                                        webratingstar = "*";
+                                    }
+                                
+                %>
+                            <div class="card">
+                                <div class="card-horizontal">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="color: #000;font-size: x-large;"><b><%=rs.getString(3)%></b></h4>
+                                        <p class="card-text" style="color: black;"><%=rs.getString(8)%></p>
+                                        <p class="card-text" style="margin-top: -25px;color: black;"><%=webratingstar%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=webratingvalue%></p>
+                                        <p class="card-text" style="margin-top: -25px;color: black;"><%=rs.getString(9)%> </p>
+                                    </div>
+                                </div>
+                            </div><br />
+                    
+                <%              
                             }
                         } catch (Exception e) {
                             System.out.println(e);
                         }
-                    } else 
-                    {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
-                            pstn1.setString(1, city);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
                     
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
                 %>
                 </div>
                 </div>

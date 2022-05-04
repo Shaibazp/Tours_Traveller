@@ -39,10 +39,11 @@
                             <h1 id="fh5co-logo"><a href="https://www.free-css.com/free-css-templates"><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li><a href="../Home.jsp">Home</a></li>
-                                    <li class="active"><a href="contact.html">Contact</a></li>
-                                    <li ><a href="login.jsp">Sign In</a></li>
-                                    <li style="margin-right: -150px;"><a href="Registration.jsp">Sign Up</a></li>
+                                    <li ><a href="../pages/index.jsp">Home</a></li>
+                                    <li ><a href="../pages/showebsitereview.jsp">Review</a></li>
+                                    <li ><a href="../pages/contact.html">Contact</a></li>
+                                    <li ><a href="../pages/login.jsp">Sign In</a></li>
+                                    <li class="active" style="margin-right: -150px;"><a href="../pages/Registration.jsp">Sign Up</a></li>
                                 </ul>
                             </nav>
                         </div>

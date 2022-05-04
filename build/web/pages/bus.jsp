@@ -1,14 +1,7 @@
-<%@page import="java.util.Base64"%>
-<%@page import="java.io.OutputStream"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.util.Date"%>
-<%@page import="java.sql.*"%>
-<%@ include file="DB_Connection.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<%session.getAttribute("Userid").toString();%>
+<%@ include file="DB_Connection.jsp"%>
 <html class="no-js">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <head>
         <title>Tours Traveller</title>
         <meta charset="utf-8">
@@ -43,92 +36,116 @@
                             <h1 id="fh5co-logo"><a href=""><i class="icon-airplane"></i>Smart Tourism</a></h1>
                             <nav id="fh5co-menu-wrap" role="navigation">
                                 <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li ><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="../pages/Destination.jsp">Home</a></li>
+                                    <li><a href="" class="fh5co-sub-ddown">How to Reach</a>
+                                        <ul class="fh5co-sub-menu">
+                                            <li ><a href="cab.jsp">Cab</a></li>
+                                            <li class="active"><a href="bus.jsp">Bus</a></li>
+                                            <li><a href="https://www.irctc.co.in/nget/train-search">Train</a></li> 
+                                            <li><a href="https://www.airindia.in/">Flights</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li><a href="car.html">Hotels</a></li>
+                                    <li><a href="bookdetails.jsp">Booking Details</a></li>
+                                    <li ><a href="bookhistory.jsp">My Booking</a></li> 
                                     <li ><a href="userviewwebreview.jsp">Review</a></li>
-                                    <li><a href="pages/contact.html">Help Center</a></li>
-                                    <li><a hrefq=""> </a></li>
+                                    <li><a href="contact.jsp">Help Center</a></li>
                                     <li><a href="logout.jsp">Logout</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </header>
+                <div class="fh5co-hero">
+                    <div class="fh5co-overlay"></div>
+                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image:url(../assets/images/cover_bg_3.jpg);">
+                        <div class="desc">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-5 col-md-5">
+                                        <div class="tabulation animate-box">
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li role="presentation" class="active"><a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Car Rentals</a></li>
+                                                
+                                            </ul>
+                                            <form action="showbus.jsp" method="post">
+                                                <div class="tab-content">
+                                                    <div role="tabpanel" class="tab-pane active" id="flights">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 mt">
+                                                                <section>
+                                                                    <label>Source</label>
+                                                                    <select class="cs-select cs-skin-border" name="srcnm">
+                                                                                    
+                                                                    <%
+                                                                        String dest = (String)session.getAttribute("destination").toString();
+                                                                        try 
+                                                                        {
+                                                                            PreparedStatement pstn1 = con.prepareStatement("select * from srctodes where pname=? ");
+                                                                            pstn1.setString(1, dest);
+                                                                            ResultSet rs = pstn1.executeQuery();
+                                                                            while (rs.next()) 
+                                                                            {
+                                                                                
+                                                                                %>
+                                                                                
+                                                                                    <option value="<%=rs.getString(3)%>"><%=rs.getString(3)%></option>
+                                                                                
+                                                                                <%
+                                                                            }
+                                                                        }
+                                                                        catch(Exception e)
+                                                                        {
+                                                                            System.out.println(e);
+                                                                        }
+                                                                    %>
+                                                                    </select>
+                                                                </section>
+                                                            </div>
+                                                            <div class="col-sm-12 mt">
+                                                                
+                                                                    <label>Destination</label><br />
+                                                                    <input type="text" class="form-control" value="<%=session.getAttribute("destination").toString()%>" name="destnm" readonly>
+                                                                
+                                                            </div>
 
-
+                                                            <div class="col-xs-12">
+                                                                <input type="submit" class="btn btn-primary btn-block" value="Get Car Details">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="fh5co-tours" class="fh5co-section-gray">
                     <div class="container">
-                <%                            
-                    String region = request.getParameter("region");
-                    String season = request.getParameter("location");
-                    String city = request.getParameter("city");
-                    String nodays = request.getParameter("nodays");
-                    
-                    session.setAttribute("location2", city);
-                    
-                    if (region.equals("East") || region.equals("West")||region.equals("North")||region.equals("South")) {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where reagion=? AND season=? AND duration=?");
-                            pstn1.setString(1, region);
-                            pstn1.setString(2, season);
-                            pstn1.setString(3, nodays);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    } else 
-                    {
-                        try {
-                            PreparedStatement pstn1 = con.prepareStatement("select * from places where placenm=? ");
-                            pstn1.setString(1, city);
-                            ResultSet rs = pstn1.executeQuery();
-                            while (rs.next()) {
-                                String location = rs.getString(3);
-                                
-                                byte[] imgData = rs.getBytes(7);
-                                String encode = Base64.getEncoder().encodeToString(imgData);
-                                request.setAttribute("imgbase", encode);
-                %>
-                
-                        <div class="card mb-3">
-                            <img src="data:image/jpeg;base64,${imgbase}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h1 class="card-title" style="font-style: italic;"><b><%=rs.getString(2)%></b></h1>
-                                
-                                <p class="card-text"><%=rs.getString(6)%></p>
-                                <a href="Location.jsp?desc=<%=rs.getString(2)%>" class="btn btn-primary">Visite</a>
-                            </div>
-                        </div><br />
-                    
-                <%
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                %>
-                </div>
-                </div>
 
+                        <div class="row row-bottom-padded-md">
+                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+                                <div><img src="../assets/images/place-1.jpg" alt="website template image" class="img-responsive">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+                                <div><img src="../assets/images/place-2.jpg" alt="website template image" class="img-responsive">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+                                <div><img src="../assets/images/place-3.jpg" alt="website template image" class="img-responsive">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="fh5co-testimonial">
                     <div class="container">
                         <div class="row animate-box">
